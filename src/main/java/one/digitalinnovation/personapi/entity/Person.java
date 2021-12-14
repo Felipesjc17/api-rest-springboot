@@ -24,20 +24,21 @@ import java.util.List;
 public class Person {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //função geração de chave primaria * IDENTITY = incrementar os ids
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false) // dados obrigatório
     private String firstName;
 
-    @Column(nullable = false)
+    @Column(nullable = false) // dados obrigatório
     private String lastName;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true) // dados obrigatório * valor unico
     private String cpf;
 
     private LocalDate birthDate;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}) //Relacionamento*
+    //mapeamento * fetch obter dados * LAZY performace* cascade salva op de uma vez só *
     private List<Phone> phones;
 }

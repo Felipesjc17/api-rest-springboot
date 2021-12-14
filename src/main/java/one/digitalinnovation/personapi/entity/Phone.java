@@ -22,14 +22,14 @@ import javax.persistence.Id;
 public class Phone {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //função geração de chave primaria * IDENTITY = incrementar os ids
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(nullable = false) //dado obrigatório
     private PhoneType type;
 
-    @Column(nullable = false)
+    @Column(nullable = false)//dado obrigatório
     private String number;
 
 
